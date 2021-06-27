@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+    <menuitem id="menu_hospital_management_main" name="Hospital Management" sequence="5" groups="base.group_system,base.group_user" />
+    <!--<menuitem id="menu_medical_appointment" name="Consultas Medicas" sequence="5" parent="menu_hospital_management_main" groups="base.group_system,base.group_user"/>-->
+    <!--<menuitem id="menu_patient" name="Pasientes" sequence="10" parent="menu_hospital_management_main" groups="base.group_system,base.group_user"/>-->
+    <!--[><menuitem id="menu_session" name="Sesiones" sequence="10" parent="menu_main_kodecademy" groups="base.group_system,base.group_user"/><]-->
+    <!--<menuitem id="menu_doctor" name="Dotores" sequence="20" parent="menu_hospital_management_main" groups="base.group_system,base.group_user"/>-->
+    <!--<menuitem id="menu_report" name="Reportes" sequence="25" parent="menu_hospital_management_main" groups="base.group_system,base.group_user"/>-->
+    <menuitem id="menu_config" name="Configuración" sequence="30" parent="menu_hospital_management_main" groups="base.group_system"/>
+    <menuitem id="menu_treatments" name="Tratamientos Medicos" sequence="15" parent="menu_config" action="product.product_template_action_all" groups="base.group_system"/>
+
+  </data>
+</odoo>

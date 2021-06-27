@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+    <record id="view_patient_form" model="ir.ui.view">
+      <field name="name">patient.from</field>
+      <field name="model">res.partner</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Pasientes">
+          <sheet>
+            <field name="image_1920" widget="image" class="oe_avatar"/>
+            <div clas="oe_title">
+              <label for="name" class="oe_edit_only"/>
+              <h1>
+                <field name="name" style="width: 60%;"/>
+              </h1>
+            </div>
+            <group col="4">
+              <field name="affiliate_number"/>
+              <field name="vat"/>
+              <field name="birth_date"/>
+              <field name="edad"/>
+              <field name="genero"/>
+              <field name="status_marital"/>
+              <field name="email"/>
+              <field name="mobile"/>
+            </group>
+            <notebook>
+              <page string="Tratamientos">
+                <field name="treatments_performed" />
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_patient_tree" model="ir.ui.view">
+      <field name="name">patient.tree</field>
+      <field name="model">res.partner</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Pasientes">
+          <field name="name"/>
+          <field name="affiliate_number"/>
+          <field name="birth_date"/>
+          <field name="edad"/>
+          <field name="genero"/>
+          <field name="status_marital"/>
+          <field name="email"/>
+          <field name="mobile"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="action_patients" model="ir.actions.act_window">
+      <field name="name">Pasientes</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">res.partner</field>
+      <field name="view_mode">tree</field>
+      <field name="view_id" ref="hospital_management_system.view_patient_tree"/>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">Crear Nuevo Pasiente</p>
+      </field>
+    </record>
+
+    <menuitem id="menu_patient" 
+      name="Pasientes" 
+      parent="hospital_management_system.menu_hospital_management_main" 
+      sequence="10" 
+      action="hospital_management_system.action_patients" 
+      groups="base.group_system,base.group_user"
+    />
+    <record id="action_partner_patient_tree_view1" model="ir.actions.act_window.view">
+      <field name="sequence" eval="1"/>
+      <field name="view_mode">tree</field>
+      <field name="view_id" ref="view_patient_tree"/>
+      <field name="act_window_id" ref="action_patients"/>
+    </record>
+
+    <record id="action_partner_patient_form_view1" model="ir.actions.act_window.view">
+      <field name="sequence" eval="2"/>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="view_patient_form"/>
+      <field name="act_window_id" ref="action_patients"/>
+    </record>
+
+  </data>
+</odoo>

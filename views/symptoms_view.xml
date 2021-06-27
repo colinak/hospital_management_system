@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+  
+    <record id="view_medical_symptoms_tree" model="ir.ui.view">
+      <field name="name">medical.symptoms.tree</field>
+      <field name="model">medical.symptoms</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+      <tree string="Sintomas" editable="bottom">
+        <field name="name"/>
+      </tree>
+      </field>
+    </record>
+
+    <record id="action_medical_symptomsy" model="ir.actions.act_window">
+      <field name="name">Sintomas</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">medical.symptoms</field>
+      <field name="view_mode">tree</field>
+      <field name="view_id" ref="view_medical_symptoms_tree"/>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face"> Create New Sintomas </p>
+      </field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_symptoms" 
+      name="Sintomas" 
+      parent="hospital_management_system.menu_config" 
+      sequence="10" 
+      action="action_medical_symptomsy" 
+      groups="base.group_system"
+    />
+
+  </data>
+</odoo>
+

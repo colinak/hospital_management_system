@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+acs_diseases_group_system,acs.diseases.group.system,model_medical_diseases,base.group_system,1,1,1,1
+acs_diseases_group_user,acs.diseases.group.user,model_medical_diseases,base.group_user,1,0,0,0
+

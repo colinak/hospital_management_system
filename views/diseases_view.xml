@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+  
+    <record id="view_medical_diseases_tree" model="ir.ui.view">
+      <field name="name">medical.diseases.tree</field>
+      <field name="model">medical.diseases</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Enfermedades" editable="bottom">
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="action_medical_diseases" model="ir.actions.act_window">
+      <field name="name">Enfermedades</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">medical.diseases</field>
+      <field name="view_mode">tree</field>
+      <field name="view_id" ref="view_medical_diseases_tree"/>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face"> Create New Diseases </p>
+      </field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_diseases" 
+      name="Enfermedades" 
+      parent="hospital_management_system.menu_config" 
+      sequence="5" 
+      action="action_medical_diseases" 
+      groups="base.group_system"
+    />
+
+  </data>
+</odoo>
